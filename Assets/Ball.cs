@@ -10,10 +10,13 @@ public class Ball : MonoBehaviour
 	// Use this for initialization
 	void Start()
     {
-        float rand = Random.Range(0, 2);
-        int direction = rand > 1 ? 1 : -1;
-        Vector2 v = new Vector2(direction * speed, 0);
+        int rx = Random.Range(-5, 5);
+        int ry = Random.Range(-5, 5);
+        int x = rx > 1 ? 1 : -1;
+        int y = ry > 1 ? 1 : -1;
+        Vector2 v = new Vector2(x * speed, y * speed);
         rb2d = GetComponent<Rigidbody2D>();
+        rb2d.freezeRotation = true;
         rb2d.AddForce(v);
 	}
 	
